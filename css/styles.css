@@ -194,7 +194,9 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
   padding: 3.5rem 1.5rem;
   background: var(--color-surface);
   color: var(--color-ink-soft);
-  font-size: clamp(1.6rem, 4vw, 3.8rem);
+  /* ~35% smaller than the original clamp(1.6rem, 4vw, 3.8rem): the longer
+     cost-optimization wording wrapped to a second line at that size. */
+  font-size: clamp(1.05rem, 2.6vw, 2.45rem);
 }
 .tech-strip strong { color: var(--color-accent); }
 .tech-strip strong:nth-of-type(2) { color: var(--color-accent-2); }
