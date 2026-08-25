@@ -464,10 +464,19 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
 .pricing-card__desc { margin: 0 0 0.3rem; color: var(--color-ink-soft); font-size: 0.92rem; line-height: 1.4; }
 .pricing-card__addon { margin: 0; font-size: 0.85rem; color: var(--color-ink-soft); line-height: 1.4; }
 
-/* Applies to every tier, so it sits under the cards rather than inside one. */
-.pricing__advisory {
-  max-width: 62ch;
+/* Two notes that apply across every tier, so they sit under the cards rather
+   than inside one: advisory pricing on the left, larger/custom deployments on
+   the right. */
+.pricing__notes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: var(--max-width);
   margin: 0 auto 2.25rem;
+  text-align: left;
+}
+.pricing__note {
+  margin: 0;
   color: rgba(255, 255, 255, 0.92);
   font-size: 0.95rem;
   line-height: 1.5;
@@ -475,6 +484,7 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
 
 @media (max-width: 900px) {
   .pricing__grid { grid-template-columns: 1fr; max-width: 32rem; }
+  .pricing__notes { grid-template-columns: 1fr; max-width: 32rem; gap: 1.25rem; }
 }
 .cta-banner__title { font-size: clamp(1.8rem, 3vw, 2.5rem); margin-bottom: 0.5rem; }
 .cta-banner__subtitle { margin-bottom: 2rem; opacity: 0.9; }
