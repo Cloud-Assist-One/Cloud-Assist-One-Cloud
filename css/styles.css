@@ -184,6 +184,9 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
 .hero__subtitle { font-size: 1.1rem; color: var(--color-ink-invert-soft); margin-bottom: 2rem; max-width: 42ch; }
 .hero__actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 .hero__visual img { width: 60%; height: auto; display: block; margin: 0 auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
+/* Wider than the old portrait infographic: the walkthrough is a landscape
+   screen recording, so it needs the full column to stay readable. */
+.hero__video { width: 100%; height: auto; display: block; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); background: #000; }
 
 /* Tech strip */
 .tech-strip {
