@@ -388,6 +388,45 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
 .process-detail { max-width: 720px; margin: 0 auto; padding: 1.5rem 0 0; }
 .process-detail img { width: 100%; height: auto; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
 
+/* Portal walkthrough: alternating text/screenshot rows */
+.walkthrough { display: flex; flex-direction: column; gap: 4.5rem; margin-top: 3.5rem; text-align: left; }
+.walkthrough__step {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+/* Every other row puts the screenshot first, so the page doesn't read as one
+   long left-hand column. */
+.walkthrough__step:nth-child(even) .walkthrough__text { order: 2; }
+.walkthrough__number {
+  display: inline-block;
+  font-family: var(--font-display, inherit);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  margin-bottom: 0.35rem;
+}
+.walkthrough__text h2 { font-size: 1.45rem; margin: 0 0 0.6rem; }
+.walkthrough__text p { color: var(--color-ink-soft); margin: 0; }
+.walkthrough__shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+}
+.walkthrough__cta { margin-top: 4.5rem; display: flex; flex-direction: column; align-items: center; gap: 1.25rem; }
+.walkthrough__cta p { max-width: 60ch; color: var(--color-ink-soft); margin: 0; }
+
+@media (max-width: 860px) {
+  /* Stacked on narrow screens, with the screenshot always under its text
+     regardless of the alternating desktop order. */
+  .walkthrough__step { grid-template-columns: 1fr; gap: 1.25rem; }
+  .walkthrough__step:nth-child(even) .walkthrough__text { order: 0; }
+}
+
 /* CTA Banner */
 .cta-banner {
   text-align: center;
