@@ -111,7 +111,17 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
   gap: 1rem;
 }
 .nav__logo { display: flex; align-items: center; gap: 0.6rem; color: var(--color-ink-invert); }
-.nav__logo img { height: 132px; width: auto; filter: invert(1); }
+/* No invert: the previous mark was black and had to be flipped to read on the
+   dark header. This one is full colour, but most of it is dark navy, so it
+   needs a light plate to stay legible against the dark header rather than a
+   filter that would throw away the brand blue. */
+.nav__logo img {
+  height: 96px;
+  width: auto;
+  background: #fff;
+  border-radius: 10px;
+  padding: 6px;
+}
 .nav__logo-text { font-weight: 700; font-size: 1.05rem; }
 .nav__links { display: flex; align-items: center; gap: 1.75rem; }
 .nav__link { color: var(--color-ink-invert-soft); font-weight: 500; }
@@ -431,7 +441,16 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
   padding-bottom: 2rem;
 }
 .footer__brand { display: flex; flex-direction: column; gap: 0.75rem; }
-.footer__brand img { width: 51px; height: 56px; align-self: flex-start; filter: invert(1); }
+/* Height-driven so the mark keeps its aspect ratio; the plate does the same
+   job as in the header, since the footer is dark too. */
+.footer__brand img {
+  height: 72px;
+  width: auto;
+  align-self: flex-start;
+  background: #fff;
+  border-radius: 8px;
+  padding: 5px;
+}
 .footer__brand p { color: var(--color-ink-invert-soft); font-size: 0.9rem; }
 .footer__nav, .footer__contact { display: flex; flex-direction: column; gap: 0.6rem; }
 .footer__nav a, .footer__contact a { color: var(--color-ink-invert); }
