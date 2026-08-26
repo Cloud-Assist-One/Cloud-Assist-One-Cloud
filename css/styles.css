@@ -573,6 +573,67 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
   font-size: 0.85rem;
 }
 
+/* Contact page ---------------------------------------------------------- */
+
+.contact-page { max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem; }
+
+.contact-form {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+}
+
+.contact-form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+.contact-form__field { display: flex; flex-direction: column; gap: 0.4rem; }
+
+.contact-form__field label { font-weight: 600; font-size: 0.9rem; }
+.contact-form__field label span { color: var(--color-accent-dark); }
+
+.contact-form__field input {
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-ink);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 0.75rem 0.9rem;
+  width: 100%;
+}
+
+.contact-form__field input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+  border-color: var(--color-accent);
+}
+
+/* Moved out of view rather than display:none — some bots skip hidden inputs,
+   which would defeat the trap. */
+.contact-form__trap {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.contact-form__submit { align-self: flex-start; }
+.contact-form__submit:disabled { opacity: 0.6; cursor: default; transform: none; }
+
+.contact-form__status { font-size: 0.95rem; }
+.contact-form__status:empty { display: none; }
+.contact-form__status--error { color: #b3261e; }
+
+.contact-form__success { font-size: 1.1rem; font-weight: 600; }
+.contact-form__alt { font-size: 0.9rem; color: var(--color-ink-soft); }
+.contact-form__alt a { color: var(--color-accent-dark); }
+
 @media (max-width: 900px) {
   .services__grid, .why-us__grid, .process__grid { grid-template-columns: repeat(2, 1fr); }
   .footer__grid { grid-template-columns: 1fr; }
@@ -580,4 +641,6 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
 
 @media (max-width: 560px) {
   .services__grid, .why-us__grid, .process__grid { grid-template-columns: 1fr; }
+  .contact-form__row { grid-template-columns: 1fr; }
+  .contact-form { padding: 1.5rem; }
 }
