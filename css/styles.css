@@ -463,6 +463,19 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
 .pricing-card__lead span { font-weight: 400; color: var(--color-ink-soft); font-size: 0.88rem; }
 .pricing-card__desc { margin: 0 0 0.3rem; color: var(--color-ink-soft); font-size: 0.92rem; line-height: 1.4; }
 .pricing-card__addon { margin: 0; font-size: 0.85rem; color: var(--color-ink-soft); line-height: 1.4; }
+/* The banner turns .btn--primary white so it reads against the gradient,
+   which would make it invisible on a white card. Put the accent fill back
+   for buttons that sit inside a card. */
+/* Deliberately more specific than `.cta-banner .btn--primary`, which appears
+   later in this file: matching its specificity would lose on source order. */
+.cta-banner .pricing-card .pricing-card__cta {
+  display: inline-block;
+  margin-top: 0.9rem;
+  padding: 0.55rem 1.4rem;
+  background: var(--color-accent);
+  color: #fff;
+}
+.cta-banner .pricing-card .pricing-card__cta:hover { background: var(--color-accent-dark); color: #fff; }
 
 /* Two notes that apply across every tier, so they sit under the cards rather
    than inside one: advisory pricing on the left, larger/custom deployments on
