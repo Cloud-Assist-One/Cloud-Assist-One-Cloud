@@ -505,38 +505,37 @@ h1, h2, h3 { line-height: 1.15; font-weight: 800; letter-spacing: -0.01em; }
 .cta-banner .btn--primary:hover { background: #f0f0f0; }
 
 /* Clients page (placeholder logos + testimonials) */
-.clients-page, .testimonials-page { max-width: var(--max-width); margin: 0 auto; padding: 4rem 1.5rem; }
-.placeholder-grid { display: grid; gap: 1.5rem; margin-top: 2.5rem; }
-.placeholder-grid--logos { grid-template-columns: repeat(3, 1fr); }
-.placeholder-grid--testimonials { grid-template-columns: repeat(3, 1fr); }
-.placeholder-card {
-  border: 2px dashed rgba(63, 125, 255, 0.35);
-  border-radius: var(--radius);
-  color: var(--color-ink-soft);
-  background: var(--color-surface);
-  transition: transform 0.15s ease, border-color 0.15s ease;
+.testimonials-page { max-width: var(--max-width); margin: 0 auto; padding: 4rem 1.5rem; }
+.testimonial-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  /* Quotes vary a lot in length; stretching keeps every card in a row the
+     same height instead of leaving short ones floating above tall ones. */
+  align-items: stretch;
 }
-.placeholder-card:hover { transform: translateY(-4px); border-color: var(--color-accent); }
-.placeholder-card--logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.placeholder-card--testimonial {
+/* Solid border, not the dashed one the retired placeholder cards used --
+   a dashed edge reads as "coming soon" and undercuts real testimonials. */
+.testimonial-card {
+  margin: 0;
   padding: 1.75rem;
   text-align: center;
+  border: 1px solid var(--color-border, rgba(63, 125, 255, 0.25));
+  border-left: 3px solid var(--color-accent);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  transition: transform 0.15s ease, border-color 0.15s ease;
 }
-.placeholder-card--testimonial p { font-style: italic; margin-bottom: 0.75rem; }
-.placeholder-card--testimonial span { font-size: 0.85rem; font-weight: 600; }
+.testimonial-card:hover { transform: translateY(-4px); border-color: var(--color-accent); }
+.testimonial-card p { font-style: italic; margin: 0; }
 
 @media (max-width: 900px) {
-  .placeholder-grid--logos, .placeholder-grid--testimonials { grid-template-columns: repeat(2, 1fr); }
+  .testimonial-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 560px) {
-  .placeholder-grid--logos, .placeholder-grid--testimonials { grid-template-columns: 1fr; }
+  .testimonial-grid { grid-template-columns: 1fr; }
 }
 
 /* Footer */
